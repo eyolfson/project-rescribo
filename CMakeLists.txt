@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.8.2)
 
-project(ProjectTotusInstrumentation LANGUAGES CXX)
+project(ProjectRescribo LANGUAGES CXX)
 
 if(NOT DEFINED ENV{JAVA_HOME})
   message(FATAL_ERROR "JAVA_HOME not set")
