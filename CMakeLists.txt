@@ -31,3 +31,5 @@ add_library(project-rescribo SHARED
 set_property(
   TARGET project-rescribo PROPERTY CXX_STANDARD 17
 )
+
+install(TARGETS project-rescribo)
