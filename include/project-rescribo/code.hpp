@@ -141,6 +141,7 @@ public:
 		                    Instructions::iterator insertion_point)
 		: code(code), insertion_point(insertion_point) {}
 
+		void insert_aload(uint8_t index);
 		void insert_aload_0();
 		void insert_aload_1();
 		void insert_aload_2();
