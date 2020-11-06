@@ -105,7 +105,6 @@ private:
 	                                  Instruction* old_target,
 	                                  Instruction* new_target);
 
-	bool fix_offsets();
 	bool fix_branch_offsets(BranchInstruction* branch,
 	                        Instructions::iterator iter);
 	bool fix_lookup_switch_offsets(LookupSwitch* lookup_switch);
@@ -117,6 +116,7 @@ private:
 	);
 
 public:
+	bool fix_offsets();
 	void sync();
 
 	class InstructionInserter {
@@ -125,6 +125,10 @@ public:
 		                    Instructions::iterator insertion_point)
 		: code(code), insertion_point(insertion_point) {}
 
+		void insert_aload_0();
+		void insert_aload_1();
+		void insert_aload_2();
+		void insert_aload_3();
 		void insert_checkcast(uint16_t index);
 		void insert_dup();
 		void insert_getstatic(uint16_t index);
@@ -135,6 +139,7 @@ public:
 		void insert_invokestatic(uint16_t index);
 		void insert_ldc(uint16_t index);
 		void insert_nop();
+		void insert_pop();
 		void insert_putstatic(uint16_t index);
 		void insert_return();
 		void insert_sipush(uint16_t value);

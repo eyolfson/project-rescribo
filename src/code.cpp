@@ -321,6 +321,26 @@ Code::Instructions::iterator Code::get_objectref_top(
 	return iter;
 }
 
+void Code::InstructionInserter::insert_aload_0() {
+	auto instruction = std::make_unique<ALoad_0>(code);
+	code->instructions.insert(insertion_point, std::move(instruction));
+}
+
+void Code::InstructionInserter::insert_aload_1() {
+	auto instruction = std::make_unique<ALoad_1>(code);
+	code->instructions.insert(insertion_point, std::move(instruction));
+}
+
+void Code::InstructionInserter::insert_aload_2() {
+	auto instruction = std::make_unique<ALoad_2>(code);
+	code->instructions.insert(insertion_point, std::move(instruction));
+}
+
+void Code::InstructionInserter::insert_aload_3() {
+	auto instruction = std::make_unique<ALoad_3>(code);
+	code->instructions.insert(insertion_point, std::move(instruction));
+}
+
 void Code::InstructionInserter::insert_checkcast(uint16_t index) {
 	auto instruction = std::make_unique<CheckCast>(code, index);
 	code->instructions.insert(insertion_point, std::move(instruction));
@@ -368,6 +388,11 @@ void Code::InstructionInserter::insert_ldc(uint16_t index) {
 
 void Code::InstructionInserter::insert_nop() {
 	auto instruction = std::make_unique<Nop>(code);
+	code->instructions.insert(insertion_point, std::move(instruction));
+}
+
+void Code::InstructionInserter::insert_pop() {
+	auto instruction = std::make_unique<Pop>(code);
 	code->instructions.insert(insertion_point, std::move(instruction));
 }
 
