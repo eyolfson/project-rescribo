@@ -23,6 +23,9 @@
 
 namespace project_rescribo {
 
+// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
+// See https://llvm.org/LICENSE.txt for license information.
+
 /// If T is a pointer, just return it. If it is not, return T&.
 template<typename T, typename Enable = void>
 struct add_lvalue_reference_if_not_pointer { using type = T &; };
