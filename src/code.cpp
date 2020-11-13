@@ -337,6 +337,21 @@ Code::Instructions::iterator Code::get_objectref_top(
 	return iter;
 }
 
+void Code::InstructionInserter::insert_aaload() {
+	auto instruction = std::make_unique<AALoad>(code);
+	code->instructions.insert(insertion_point, std::move(instruction));
+}
+
+void Code::InstructionInserter::insert_aastore() {
+	auto instruction = std::make_unique<AAStore>(code);
+	code->instructions.insert(insertion_point, std::move(instruction));
+}
+
+void Code::InstructionInserter::insert_aconst_null() {
+	auto instruction = std::make_unique<AConst_Null>(code);
+	code->instructions.insert(insertion_point, std::move(instruction));
+}
+
 void Code::InstructionInserter::insert_aload(uint8_t index) {
 	auto instruction = std::make_unique<ALoad>(code, index);
 	code->instructions.insert(insertion_point, std::move(instruction));
@@ -362,13 +377,138 @@ void Code::InstructionInserter::insert_aload_3() {
 	code->instructions.insert(insertion_point, std::move(instruction));
 }
 
+void Code::InstructionInserter::insert_anewarray(uint16_t index) {
+	auto instruction = std::make_unique<ANewArray>(code, index);
+	code->instructions.insert(insertion_point, std::move(instruction));
+}
+
+void Code::InstructionInserter::insert_areturn() {
+	auto instruction = std::make_unique<AReturn>(code);
+	code->instructions.insert(insertion_point, std::move(instruction));
+}
+
+void Code::InstructionInserter::insert_arraylength() {
+	auto instruction = std::make_unique<ArrayLength>(code);
+	code->instructions.insert(insertion_point, std::move(instruction));
+}
+
+void Code::InstructionInserter::insert_astore(uint8_t index) {
+	auto instruction = std::make_unique<AStore>(code, index);
+	code->instructions.insert(insertion_point, std::move(instruction));
+}
+
+void Code::InstructionInserter::insert_astore_0() {
+	auto instruction = std::make_unique<AStore_0>(code);
+	code->instructions.insert(insertion_point, std::move(instruction));
+}
+
+void Code::InstructionInserter::insert_astore_1() {
+	auto instruction = std::make_unique<AStore_1>(code);
+	code->instructions.insert(insertion_point, std::move(instruction));
+}
+
+void Code::InstructionInserter::insert_astore_2() {
+	auto instruction = std::make_unique<AStore_2>(code);
+	code->instructions.insert(insertion_point, std::move(instruction));
+}
+
+void Code::InstructionInserter::insert_astore_3() {
+	auto instruction = std::make_unique<AStore_3>(code);
+	code->instructions.insert(insertion_point, std::move(instruction));
+}
+
+void Code::InstructionInserter::insert_athrow() {
+	auto instruction = std::make_unique<AThrow>(code);
+	code->instructions.insert(insertion_point, std::move(instruction));
+}
+
+void Code::InstructionInserter::insert_baload() {
+	auto instruction = std::make_unique<BALoad>(code);
+	code->instructions.insert(insertion_point, std::move(instruction));
+}
+
+void Code::InstructionInserter::insert_bastore() {
+	auto instruction = std::make_unique<BAStore>(code);
+	code->instructions.insert(insertion_point, std::move(instruction));
+}
+
+void Code::InstructionInserter::insert_bipush(uint8_t value) {
+	auto instruction = std::make_unique<BIPush>(code, value);
+	code->instructions.insert(insertion_point, std::move(instruction));
+}
+
+void Code::InstructionInserter::insert_caload() {
+	auto instruction = std::make_unique<CALoad>(code);
+	code->instructions.insert(insertion_point, std::move(instruction));
+}
+
+void Code::InstructionInserter::insert_castore() {
+	auto instruction = std::make_unique<CAStore>(code);
+	code->instructions.insert(insertion_point, std::move(instruction));
+}
+
 void Code::InstructionInserter::insert_checkcast(uint16_t index) {
 	auto instruction = std::make_unique<CheckCast>(code, index);
 	code->instructions.insert(insertion_point, std::move(instruction));
 }
 
+void Code::InstructionInserter::insert_d2f() {
+	auto instruction = std::make_unique<D2F>(code);
+	code->instructions.insert(insertion_point, std::move(instruction));
+}
+
+void Code::InstructionInserter::insert_d2i() {
+	auto instruction = std::make_unique<D2I>(code);
+	code->instructions.insert(insertion_point, std::move(instruction));
+}
+
+void Code::InstructionInserter::insert_d2l() {
+	auto instruction = std::make_unique<D2L>(code);
+	code->instructions.insert(insertion_point, std::move(instruction));
+}
+
+void Code::InstructionInserter::insert_dadd() {
+	auto instruction = std::make_unique<DAdd>(code);
+	code->instructions.insert(insertion_point, std::move(instruction));
+}
+
+void Code::InstructionInserter::insert_daload() {
+	auto instruction = std::make_unique<DALoad>(code);
+	code->instructions.insert(insertion_point, std::move(instruction));
+}
+
+void Code::InstructionInserter::insert_dastore() {
+	auto instruction = std::make_unique<DAStore>(code);
+	code->instructions.insert(insertion_point, std::move(instruction));
+}
+
 void Code::InstructionInserter::insert_dup() {
 	auto instruction = std::make_unique<Dup>(code);
+	code->instructions.insert(insertion_point, std::move(instruction));
+}
+
+void Code::InstructionInserter::insert_dup_x1() {
+	auto instruction = std::make_unique<Dup_X1>(code);
+	code->instructions.insert(insertion_point, std::move(instruction));
+}
+
+void Code::InstructionInserter::insert_dup_x2() {
+	auto instruction = std::make_unique<Dup_X2>(code);
+	code->instructions.insert(insertion_point, std::move(instruction));
+}
+
+void Code::InstructionInserter::insert_dup2() {
+	auto instruction = std::make_unique<Dup2>(code);
+	code->instructions.insert(insertion_point, std::move(instruction));
+}
+
+void Code::InstructionInserter::insert_dup2_x1() {
+	auto instruction = std::make_unique<Dup2_X1>(code);
+	code->instructions.insert(insertion_point, std::move(instruction));
+}
+
+void Code::InstructionInserter::insert_dup2_x2() {
+	auto instruction = std::make_unique<Dup2_X2>(code);
 	code->instructions.insert(insertion_point, std::move(instruction));
 }
 

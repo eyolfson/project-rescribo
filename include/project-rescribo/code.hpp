@@ -141,13 +141,41 @@ public:
 		                    Instructions::iterator insertion_point)
 		: code(code), insertion_point(insertion_point) {}
 
+		void insert_aaload();
+		void insert_aastore();
+		void insert_aconst_null();
 		void insert_aload(uint8_t index);
 		void insert_aload_0();
 		void insert_aload_1();
 		void insert_aload_2();
 		void insert_aload_3();
+		void insert_anewarray(uint16_t index);
+		void insert_areturn();
+		void insert_arraylength();
+		void insert_astore(uint8_t index);
+		void insert_astore_0();
+		void insert_astore_1();
+		void insert_astore_2();
+		void insert_astore_3();
+		void insert_athrow();
+		void insert_baload();
+		void insert_bastore();
+		void insert_bipush(uint8_t value);
+		void insert_caload();
+		void insert_castore();
 		void insert_checkcast(uint16_t index);
+		void insert_d2f();
+		void insert_d2i();
+		void insert_d2l();
+		void insert_dadd();
+		void insert_daload();
+		void insert_dastore();
 		void insert_dup();
+		void insert_dup_x1();
+		void insert_dup_x2();
+		void insert_dup2();
+		void insert_dup2_x1();
+		void insert_dup2_x2();
 		void insert_getstatic(uint16_t index);
 		void insert_goto_w(Instruction* target);
 		void insert_iconst_0();
